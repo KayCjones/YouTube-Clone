@@ -11,7 +11,11 @@ from .serializers import CommentSerializer
 # Instead of get all, add endpoint that allows you to pass in videoid through path
 # and get back all comments with that video id
 
-@api_view(['GET', 'POST'])
-@permission_classes([IsAuthenticated])
-def user_cars(request):
-    
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def user_comment(request):
+    if request.method == 'GET':
+        comments = Comment.objects.filter()
+        serializer = CommentSerializer(comments, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

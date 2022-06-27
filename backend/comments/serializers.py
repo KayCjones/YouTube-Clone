@@ -1,6 +1,3 @@
-
-
-from backend.cars import serializers
 from rest_framework import serializers
 from .models import Comment
 
