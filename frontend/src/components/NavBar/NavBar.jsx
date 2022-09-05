@@ -10,34 +10,37 @@ import NotificationsIcon from "@mui/icons-material/Notifications"
 import "./NavBar.css";
 import { Avatar } from "@mui/material";
 
-const Navbar = () => {
+const Navbar = ({searchTerm, setSearchTerm, fetchVideos}) => {
   const { logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
+
+
   return (
     <div className="navBar">
-      <div>
-          <Link to="/">
-          <MenuIcon />
-            <img className="nav__logo" src="https://www.seekpng.com/png/detail/77-772362_youtube-logo-youtube-logo-png.png" alt="" />
-          </Link>
+      <div >
+          <MenuIcon  />
       </div>
 
       <div>
-            <input type="text" />
-            <SearchIcon />
+            <img onClick={() => navigate("/")} className="nav__logo" src="https://www.seekpng.com/png/detail/77-772362_youtube-logo-youtube-logo-png.png" alt="" />
+      </div>
+      
+      <div className="nav__search">
+            <input placeholder="Search" type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+            <Link to='/video'></Link>
+            <SearchIcon onClick={() => fetchVideos()} className="nav__searchButton" />
+      </div>
+
+      <div className="nav__icons">
+            <VideoCallIcon className="nav__icon" />
+            <AppsIcon onClick={() => navigate("/related")} className="nav__icon" />
+            <NotificationsIcon className="nav__icon" />
+            <Avatar className="nav__icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdHj-AOLa0gjwtF5jykT1y4FoGNen8hLJdjA&usqp=CAU" />
       </div>
 
       <div>
-            <VideoCallIcon />
-            <AppsIcon />
-            <NotificationsIcon />
-            <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdHj-AOLa0gjwtF5jykT1y4FoGNen8hLJdjA&usqp=CAU" />
-      </div>
-
-      <div>
-          <Link to='/video'>
-            <li>Video</li>
-          </Link>
+          <Link to='/video'></Link>
+          
       </div>
 
       <div>

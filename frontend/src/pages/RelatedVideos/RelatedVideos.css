@@ -1,0 +1,12 @@
+
+.relatedVideos{
+    border: 1px solid black;
+    flex: 0.8;
+    padding: 40px 20px;
+    padding-bottom: 0;
+}
+
+.relatedVideos >h2{
+    margin-left: ;
+    margin-bottom: ;
+}

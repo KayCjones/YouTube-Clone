@@ -1,0 +1,32 @@
+
+.videoPlayer{
+    margin-bottom: 40px;
+    width: 270px;
+}
+
+.videoPlayer__thumbnail{
+    height: 140px;
+    width: 250px;
+}
+
+.videoPlayer__info{
+    display: flex;
+    margin-top: 10px;
+    padding-right: 30px;
+}
+
+.videoPlayer__avatar{
+    
+}
+
+.videoPlayer__text{
+    margin-left: 15px;
+}
+
+.videoPlayer__text > h4{
+
+}
+
+.videoPlayer__text > p{
+    
+}

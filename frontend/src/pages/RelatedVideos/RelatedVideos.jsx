@@ -1,41 +1,44 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
+import "./RelatedVideos.css"
 
 
-
-const RelatedVideos = ({videoId}) => {
-    const[relatedVideos, setRelatedVideos]= useState([])
-    useEffect(() => {
- 
-    const fetchRelatedVideos =async(videoId)=>{
-      try { 
-        let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&key=AIzaSyCYpL8Ms12BQUCMlecVei-ZYjgb2Kx3Ov0&part=snippet`)
-        setRelatedVideos(response.data);
-        console.log(response.data) 
-      }
-     catch (error) {
-        console.log(error.response.data);
-      }
-    }
-fetchRelatedVideos(videoId);
-  }, []);
-  
-  
-  
-  
-  return (
-    <div>
-      <h1>Related Videos</h1>
-      {relatedVideos.map((element, index) =>{
-        if (element.id){
-          return <p>{element.snippet.title}</p>
-        }
-
-      })}
+const RelatedVideos = () => {
+  return (  
+    <div className="relatedVideos"> 
+      <h2>Recommended</h2>
+      <div className="relatedVideos__videos">
+        <VideoPlayer />
+      </div>
     </div>
-  
   );
-};
-
+}
+ 
 export default RelatedVideos;
+
+
+
+
+// const RelatedVideos = ({videoId, fetchRelatedVideos, relatedVideos}) => {
+
+
+//   useEffect(() => {    
+//     fetchRelatedVideos(videoId);
+//   }, []);
+
+//   return (
+//     <div>
+//       <h1>Related Videos</h1>
+//       {relatedVideos.map((el, index) =>{
+//         if (el.id){
+//           return <p>{el.snippet.title}</p>
+//         }
+
+//       })}
+//     </div>
+  
+//   );
+// };
+
+// export default RelatedVideos;
