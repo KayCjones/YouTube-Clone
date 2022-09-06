@@ -24,8 +24,8 @@ import axios from "axios";
 function App() {
 
   const [videos, setVideos] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("music")
-
+  const [searchTerm, setSearchTerm] = useState("")
+  
 
   const fetchVideos = async () => {
     try {
@@ -41,7 +41,7 @@ function App() {
  
   const fetchRelatedVideos = async(videoId) => {
     try { 
-      let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&key=AIzaSyCYpL8Ms12BQUCMlecVei-ZYjgb2Kx3Ov0&part=snippet`)
+      let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&key=${googleApiKey}}&part=snippet`)
       setRelatedVideos(response.data);
       console.log(response.data) 
     } catch (error) {

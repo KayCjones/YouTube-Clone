@@ -26,7 +26,7 @@ const VideoPlayerPage = (props) => {
 
 return (
   <div> 
-      <h1>Hello from video player</h1>
+      <h1>Video Player</h1>
       <VideoPlayer/>
   </div>
 

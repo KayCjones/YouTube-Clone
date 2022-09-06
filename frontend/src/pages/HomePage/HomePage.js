@@ -3,12 +3,17 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import { googleApiKey } from "../../api";
+import "../../App.css";
+import { useNavigate } from "react-router-dom";
+import { Avatar } from "@mui/material";
+
 
 const HomePage = ({fetchVideos, videos}) => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
   // The "token" value is the JWT token that you will send in the header of any request requiring authentication
   //TODO: Add an AddCars Page to add a car for a logged in user's garage
   const [user, token] = useAuth("")
+  const navigate = useNavigate();
 
   // const [displayData, setDisplayData] = useState([])
 
@@ -31,10 +36,11 @@ const HomePage = ({fetchVideos, videos}) => {
     <div className="container">
       {videos &&
         videos.map((vid) => (
-          <p key={vid.id.videoId}>
+          <div onClick={() => navigate("/video", { state: { vid }}) } className="containerVideo" key={vid.id.videoId}>
             <iframe src={`https://www.youtube.com/embed/${vid.id.videoId}`} />
-            <div>{vid.snippet.title} </div>
-          </p>
+            <Avatar />
+            <p>{vid.snippet.title} </p>
+          </div>
         ))}
     </div>
   );
