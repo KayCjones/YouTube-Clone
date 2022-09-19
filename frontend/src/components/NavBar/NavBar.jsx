@@ -35,7 +35,7 @@ const Navbar = ({searchTerm, setSearchTerm, fetchVideos}) => {
             <VideoCallIcon className="nav__icon" />
             <AppsIcon onClick={() => navigate("/related")} className="nav__icon" />
             <NotificationsIcon className="nav__icon" />
-            <Avatar className="nav__icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdHj-AOLa0gjwtF5jykT1y4FoGNen8hLJdjA&usqp=CAU" />
+            <Avatar className="nav__icon" />
       </div>
 
       <div>

@@ -36,3 +36,14 @@
   border-left: 1px solid lightgrey;
   color: grey;
 }
+
+.navBar:hover{
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.navBar:hover > nav__icon{
+  color: red
+}
+
+navBar:hover > navBar__ti
